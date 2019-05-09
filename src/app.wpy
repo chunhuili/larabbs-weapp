@@ -75,6 +75,11 @@
             }
         }
 
+        globalData = {
+            refreshPages: [],
+            unreadCount: 0
+        }
+
         constructor () {
             super()
             this.use('requestfix')
@@ -141,10 +146,6 @@
             return (wepy.getStorageSync('access_token') !== '')
         }
 
-        globalData = {
-            refreshPages: [],
-            unreadCount: 0
-        }
         checkRefreshPages (route, callback) {
             let refreshIndex = this.globalData.refreshPages.indexOf(route)
             if (refreshIndex === -1) {
